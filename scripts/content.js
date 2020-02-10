@@ -3,13 +3,12 @@ let cookieClickerBuddy = (function () {
     let rate = 1000 / 30
 
     let goldenCookieClicker = function () {
-        var shimmers = document.querySelectorAll('.shimmer')
+        let selector = '.shimmer:not([style*="wrathCookie"], .shimmer:not([style*="spookyCookie"]))'
+        let shimmers = document.querySelectorAll(selector)
         shimmers.forEach((shimmer) => {
-            if (shimmer.style.backgroundImage.includes("goldCookie")) {
-                let timestamp = new Date().toLocaleString()
-                shimmer.click()
-                console.info(`Clicked Golden Cookie at ${timestamp}`)
-            }
+            let timestamp = new Date().toLocaleString()
+            shimmer.click()
+            console.info(`Clicked Golden Cookie at ${timestamp}`)
         })
 
         goldenCookieClickerId = setTimeout(goldenCookieClicker, rate)
