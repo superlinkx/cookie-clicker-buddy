@@ -25,7 +25,7 @@ let cookieClickerBuddy = (function () {
     }
 })()
 
-chrome.runtime.onMessage.addEventListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.command === 'startGCC') {
         cookieClickerBuddy.startGoldenCookieClicker()
         console.info("Engaging Golden Cookie Clicker on this page!")
