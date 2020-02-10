@@ -1,0 +1,1 @@
+Cookie Sprite created by Henry Software https://henrysoftware.itch.io/pixel-food
