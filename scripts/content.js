@@ -39,25 +39,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     sendResponse({ result: "success" })
 })
 
-HTMLDocument.prototype.ready = function () {
-    return new Promise(function (resolve, reject) {
-        if (document.readyState === 'complete') {
-            resolve(document)
-        } else {
-            document.addEventListener('DOMContentLoaded', function () {
-                resolve(document)
-            })
-        }
-    })
-}
-
-document.ready().then(() => {
-    chrome.storage.sync.get('engageGoldenCookieClicker', function (data) {
-        if (data.engageGoldenCookieClicker) {
-            cookieClickerBuddy.startGoldenCookieClicker()
-            console.info("Engaging Golden Cookie Clicker on this page!")
-        } else {
-            console.info("Golden Cookie Clicker awaiting orders!")
-        }
-    })
+chrome.storage.sync.get('engageGoldenCookieClicker', function (data) {
+    if (data.engageGoldenCookieClicker) {
+        cookieClickerBuddy.startGoldenCookieClicker()
+        console.info("Engaging Golden Cookie Clicker on this page!")
+    } else {
+        console.info("Golden Cookie Clicker awaiting orders!")
+    }
 })
