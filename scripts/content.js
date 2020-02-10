@@ -3,7 +3,7 @@ let cookieClickerBuddy = (function () {
     let rate = 1000 / 30
 
     let goldenCookieClicker = function () {
-        let selector = '.shimmer:not([style*="wrathCookie"], .shimmer:not([style*="spookyCookie"]))'
+        let selector = '.shimmer:not([style*="wrathCookie"]), .shimmer:not([style*="spookyCookie"])'
         let shimmers = document.querySelectorAll(selector)
         shimmers.forEach((shimmer) => {
             let timestamp = new Date().toLocaleString()
